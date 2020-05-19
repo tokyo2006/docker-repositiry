@@ -1,0 +1,86 @@
+base:
+  build: ../base
+  expose:
+    - "8080"
+    - "61616"
+    - "80"
+    - "5000"
+    - "9000"
+    - "8081"
+    - "8082"
+    - "8083"
+    - "8084"
+    - "8085"
+    - "8086"
+    - "8087"
+    - "8088"
+    - "22"
+  dns_search: exigengroup.com
+ssh:
+  build: ../services/openssh
+  expose:
+    - "8080"
+    - "61616"
+    - "80"
+    - "5000"
+    - "9000"
+    - "8081"
+    - "8082"
+    - "8083"
+    - "8084"
+    - "8085"
+    - "8086"
+    - "8087"
+    - "8088"
+    - "22"
+  ports:
+    - "2222:22"
+  dns_search: exigengroup.com
+jenkins:
+  build: ../frameworks/jenkins
+  dns_search: exigengroup.com
+  expose:
+    - "8080"
+  ports:
+    - "8080:8080"
+  privileged: true
+  tty: true
+  stdin_open: true
+  volumes:
+    - $(which docker):/usr/bin/docker
+    - /reworks/jenkins_home:/var/jenkins_home
+    - /var/run/docker.sock:/var/run/docker.sock
+
+developer:
+  build: ../applications/developer
+  expose:
+    - "8080"
+    - "61616"
+    - "80"
+    - "5000"
+    - "9000"
+    - "8081"
+    - "8082"
+    - "8083"
+    - "8084"
+    - "8085"
+    - "8086"
+    - "8087"
+    - "8088"
+    - "22"
+  ports:
+    - "8080:8080"
+    - "2222:22"
+  volumes:
+    - /reworks/eis_deploy_ws:/reworks/sourcecode
+  dns_search: exigengroup.com
+
+dockui:
+  image: dockerui/dockerui
+  ports:
+    - "9000:9000"
+  privileged: true
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+

@@ -1,0 +1,7 @@
+ZS_DBHost=zabbix-db
+ZS_DBUser=zabbix
+ZS_DBPassword=zabbix
+XXL_zapix=true
+XXL_grapher=true
+XXL_apiuser=Admin
+XXL_apipass=zabbix
