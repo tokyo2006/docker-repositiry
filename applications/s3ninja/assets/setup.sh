@@ -4,7 +4,7 @@ set -e
 deps(){
 	echo "Installing dependencies"
 	apt-get update
-        apt-get install -y unzip git openssl curl
+        apt-get install -y unzip git openssl wget
         rm -rf /var/lib/apt/lists/*
         mkdir /s3ninja
         cd /s3ninja
