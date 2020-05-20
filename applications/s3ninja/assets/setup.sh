@@ -3,8 +3,9 @@ set -e
 
 deps(){
 	echo "Installing dependencies"
-	apk --update add unzip 
-        rm -rf /var/cache/apk/* 
+	apt-get update
+        apt-get install -y unzip git openssl curl
+        rm -rf /var/lib/apt/lists/*
         mkdir /s3ninja
         cd /s3ninja
         wget https://oss.sonatype.org/content/groups/public/com/scireum/s3ninja/2.7/s3ninja-2.7-zip.zip
