@@ -1,8 +1,8 @@
 FROM alpine:latest
 LABEL maintainer="Chen Zeng <rurounikexin@gmail.com>" 
 WORKDIR /opt/apps
-ARG GITHUB_TOKEN 
-ARG GITHUB_REPO 
+ENV GITHUB_TOKEN "YOUR TOKEN"
+ENV GITHUB_REPO "YOUR REPO"
 ENV VERSION 0.71.0
 RUN apk add --no-cache git openssl py-pygments curl \
     && curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.tar.gz | tar -xz \
