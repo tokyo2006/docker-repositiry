@@ -1,4 +1,4 @@
-FROM tokyo2006/eisserver:mini8u65
+FROM tokyo2006/base
 LABEL maintainer="Chen Zeng <rurounikexin@gmail.com>" 
 # it based jdk8u65 for developer
 ADD assets /assets
